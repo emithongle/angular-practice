@@ -1,22 +1,72 @@
 <!doctype html>
-<html ng-app="MyApp">
+<html ng-app="BagasusApp">
 <head>
     <title>AngularJS Website</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.1/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.3.0-rc.1/angular-route.min.js"></script>
-    <script type="text/javascript" src="myown.js"></script>
+    <script type="text/javascript" src="js/myscript.js"></script>
 
 </head>
 <body>
+	
+	<script type="text/ng-template" id="login.html">
+        <form ng-submit="submitLogin()">
+			  <p> Login </p>
+			  <div> <strong> Username : </strong> <input type="text" name="username" ng-model="user.userName"> </div>
+			  <div> <strong> Password : </strong> <input type="password" name="password" ng-model="user.passWord"><br> </div>
+			  <input type="submit" id="login" value="Login" />
+		</form>
 
+		<p> Access Token: {{access_token}} </p>
+		<p> Refresh Token: {{refresh_token}} </p>
+
+    </script>
+
+    <script type="text/ng-template" id="user.html">
+        <p> Hi {{username}}! </p>
+        <br>
+        <p> Token Type: {{token_type}} </p>
+        <p> Access Token: {{access_token}} </p>
+        <p> Refresh Token: {{refresh_token}} </p>
+    </script>
+
+    <script type="text/ng-template" id="carrier.html">
+        This is the {{ pageName }} page.
+    </script>
+
+    <script type="text/ng-template" id="store.html">
+        This is the {{ pageName }} page.
+    </script>
+
+    <script type="text/ng-template" id="buyer.html">
+        This is the {{ pageName }} page.
+    </script>
+
+    <script type="text/ng-template" id="404.html">
+        This is the {{ pageName }} page.
+    </script>
+
+	<!-- <div id="menu">
+        <a href="#/" class="btn" ng-show="bLoginView">Login</a>
+        <a href="#/" class="btn" ng-show="bUserView">User</a>
+        <a href="#/carrier" class="btn" ng-show="bCarrierView">Carrier</a>
+        <a href="#/store" class="btn" ng-show="bStoreView">Store</a>
+        <a href="#/buyer" class="btn" ng-show="bBuyerView">Buyer</a>
+    </div>
+ -->
     <div id="menu">
-        <a href="#/" class="btn">Home</a>
-        <a href="#/about" class="btn">About</a>
-        <a href="#/contact" class="btn">Contact</a>
+        <a href="#/" class="btn">Login</a>
+        <a href="#/" class="btn">User</a>
+        <a href="#/carrier" class="btn">Carrier</a>
+        <a href="#/store" class="btn">Store</a>
+        <a href="#/buyer" class="btn">Buyer</a>
     </div>
 
-    <h1> Header </h1>
+	<h1> Header </h1>
     <ng-view> </ng-view>
     <h1> Footer </h1>
+
+    {{3 + 3}}
+
 </body>
 </html>
